@@ -140,3 +140,68 @@ public enum Singleton {
 - enum은 싱글톤임을 항상 보장하기 때문에 해당 방식을 사용할 수 있다.
 </div>
 </details>
+
+<details>
+<summary>팩토리 패턴</summary>
+<div markdown="1">
+- 객체 생성 부분을 떼어내 추상화한 패턴
+- 보통은 상위 클래스 하나가 있고 이에 대한 구현체가 여러개 있을 때 상황에 따라 원하는 인스턴스를 리턴해주는 방식이다
+- 따라서 인터페이스에 따른 구현체를 두기 편해지기 때문에 추상화에 도움이 된다.
+</div>
+</details>
+
+<details>
+<summary>전략 패턴</summary>
+<div markdown="1">
+
+</div>
+</details>
+
+<details>
+<summary>옵저버 패턴</summary>
+<div markdown="1">
+
+</div>
+</details>
+
+<details>
+<summary>프록시 패턴과 프록시 서버</summary>
+<div markdown="1">
+
+</div>
+</details>
+
+<details>
+<summary>이터레이터 패턴</summary>
+<div markdown="1">
+
+</div>
+</details>
+
+<details>
+<summary>노출모듈 패턴</summary>
+<div markdown="1">
+
+</div>
+</details>
+
+<details>
+<summary>MVC 패턴</summary>
+<div markdown="1">
+
+</div>
+</details>
+
+<details>
+<summary>MVP 패턴</summary>
+<div markdown="1">
+
+</div>
+</details>
+
+<details>
+<summary>MVVM </summary>
+<div markdown="1">
+
+</div>
+</details>
