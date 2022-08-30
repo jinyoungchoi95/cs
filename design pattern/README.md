@@ -158,6 +158,28 @@ public enum Singleton {
 
 - 특정한 행위가 있을때 해당 행위에 대해서 추상화를 한 인터페이스를 두고, 각각의 행위에 대한 전략에 따라 구현체를 두는 디자인 패턴이다. 필요한 상황에 따라서 특정 전략 구현체를 사용하는 방식으로 전략을 수정한다.
 - 상태패턴도 마찬가지로 상태에 대한 추상화된 인터페이스를 두고 상태를 계속해서 변경하는 방법이기는 하다. 다만 상태패턴은 현재 상태에서 메소드가 동작했을 때 다음 상태에 대해서 변화할 수 있지만 전략 패턴은 전략 그자체에 대한 행위만을 진행하여 다른 전략으로의 상태변화가 없다.
+```java
+public interface MoveStrategy {
+
+	boolean move(int value);
+}
+
+public class AlwaysMoveStrategy implements MoveStrategy {
+
+	@Override
+	public boolean move(int value) {
+		return true;
+	}
+}
+
+public class CarMoveStrategy implements MoveStrategy {
+
+	@Override
+	public boolean move(int value) {
+		return value >= 4;
+	}
+}
+```
 
 </div>
 </details>
