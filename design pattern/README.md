@@ -188,6 +188,58 @@ public class CarMoveStrategy implements MoveStrategy {
 <summary>옵저버 패턴</summary>
 <div markdown="1">
 
+- 어떤 객체의 상태 변화를 관찰하는 옵저버를 등록하고, 필요한 상태의 변화가 있을 때마다 옵저버 목록에 있는 옵저버들에게 변화를 통지하는 디자인 패턴
+- 자바에서는 아래와 같은 이유로 Observer 인터페이스가 deprecated되었으며 그 이유는 아래와 같다.
+	- Observable이 클래스로 정의되어있어 상속받는 구조로 되어있으며, 다른 클래스를 이미 상속받고 있다면 상속받을 수 없어 재사용성에 문제가 있다.
+	- Observer의 구현 로직이 instance of로 타입체크를 하며 casting이 필수적이다
+	- thread safe하지 않음
+```java
+public class EventHandler implements PropertyChangeListener {  
+  
+    @Override  
+    public void propertyChange(final PropertyChangeEvent evt) {  
+        if (evt.getPropertyName().equals("Domain.name")) {  
+            System.out.println("event was handling");  
+        }  
+    }  
+}
+```
+
+```java
+public class Domain {  
+      
+    private String name;  
+  
+    private final PropertyChangeSupport listeners = new PropertyChangeSupport(this);  
+  
+    public Domain() {  
+    }  
+  
+    public void addPropertyChangeListener(PropertyChangeListener listener) {  
+        listeners.addPropertyChangeListener(listener);  
+    }  
+  
+    public void firePropertyChange(String propName, Object oldValue, Object newValue) {  
+        listeners.firePropertyChange(propName, oldValue, newValue);  
+    }  
+  
+    public void setName(final String name) {  
+        firePropertyChange("Domain.name", this.name, name);  
+        this.name = name;  
+    }  
+}
+```
+
+```java
+public static void main(String[] args) {  
+    EventHandler eventHandler = new EventHandler();  
+    Domain domain = new Domain();  
+    domain.addPropertyChangeListener(eventHandler);  
+  
+    domain.setName("도메인 이름 변경");  
+}
+```
+
 </div>
 </details>
 
