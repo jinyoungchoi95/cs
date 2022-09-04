@@ -267,12 +267,18 @@ public static void main(String[] args) {
 <summary>이터레이터 패턴</summary>
 <div markdown="1">
 
+- 여러개의 Collection 자료구조가 있을 때 iterator를 통해 각 자료구조로 접근할 수 있도록 추상화한 방식
+- 자바에서는 이미 iterator가 구현체로 존재함
+
 </div>
 </details>
 
 <details>
 <summary>노출모듈 패턴</summary>
 <div markdown="1">
+
+- 즉시 실행 함수를 통해 private, public과 같은 접근 제어자를 만드는 패턴
+- js는 전역 범위 내에서 스크립트가 진행되기 때문에 직접 구현해야한다.
 
 </div>
 </details>
@@ -281,6 +287,16 @@ public static void main(String[] args) {
 <summary>MVC 패턴</summary>
 <div markdown="1">
 
+- model, view, controller로 어플리케이션의 통신 프로세스에서 크게 3가지 관심사로 나눈 패턴
+- Model
+	- 어플리케이션의 데이터에 속함
+	- view와 controller가 주고받는 데이터
+- View
+	- 실제 화면단에서 나타나있는 view 화면 그자체를 의미함. 따로 데이터를 저장하여 본인이 해결하는 것이 아닌 화면 랜더링만 진행하고 필요한 데이터는 model을 통해 노출시킴
+- Controller
+	- View가 필요한 Model을 만들어내는 역할
+	- 어플리케이션 로직을 담당하여 필요한 데이터를 만들어 model에 담아 View에 전달
+
 </div>
 </details>
 
@@ -288,12 +304,20 @@ public static void main(String[] args) {
 <summary>MVP 패턴</summary>
 <div markdown="1">
 
+- MVC에서 C가 Presenter로 교체된 패턴
+- Model에 대한 요청을 View가 하는 것이 아닌 Persenter가 진행하여 View와 Model간의 의존성이 떨어짐
+
 </div>
 </details>
 
 <details>
 <summary>MVVM </summary>
 <div markdown="1">
+
+- Model, View, View Model로 이루어진 패턴
+- View Model은 View를 조금 더 추상화한 계층으로 커맨드와 데이터 바인딩을 가지고 있음
+- View에 요청이 들어오면 Command 패턴을 통해 View Model에 Action을 전달하는 형태
+- View와 Model간의 의존성이 없는 것은 MVP와 동일하며, View와 View Model간의 의존성또한 없어 각각이 독립적인 모듈 개발을 진행할 수 있음
 
 </div>
 </details>
